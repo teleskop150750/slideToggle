@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.page__body {
+  margin: 0;
+}
+
+.wr {
+  display: none;
+  background-color: coral;
+}
+
+.opening {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition-property: height;
+  transition-duration: 1s;
+}
+
+.open {
+  display: block;
+}
