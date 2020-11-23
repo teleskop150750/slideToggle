@@ -16,9 +16,12 @@
     "vue"
   ],
   "rules": {
-    "import/extensions": {
-      "js": "always"
-    },
+    "import/extensions": [
+      1,
+      {
+        "js": "always"
+      }
+    ],
     "max-len": [
       1,
       {
