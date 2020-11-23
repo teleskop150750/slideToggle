@@ -28,14 +28,14 @@ export default class SlideToggle {
   slideUp() {
     this.beforeSlideUp();
     this.target.style.height = `${this.target.offsetHeight}px`;
-    this.target.classList.remove('open');
-    this.target.classList.add('opening');
+    this.target.classList.remove(this.open);
+    this.target.classList.add(this.opening);
     // eslint-disable-next-line no-unused-expressions
     this.target.offsetHeight;
     this.target.style.height = 0;
     const transitionendHandler = () => {
       this.target.style.removeProperty('height');
-      this.target.classList.remove('opening');
+      this.target.classList.remove(this.opening);
       this.target.removeEventListener('transitionend', transitionendHandler);
       this.button.addEventListener('click', this.slideToggle);
     };
@@ -45,12 +45,12 @@ export default class SlideToggle {
   /* SLIDE DOWN */
   slideDown() {
     this.beforeSlideDown();
-    this.target.classList.add('opening');
+    this.target.classList.add(this.opening);
     this.target.style.height = `${this.target.scrollHeight}px`;
     const transitionendHandler = () => {
       this.target.style.removeProperty('height');
-      this.target.classList.add('open');
-      this.target.classList.remove('opening');
+      this.target.classList.add(this.open);
+      this.target.classList.remove(this.opening);
       this.target.removeEventListener('transitionend', transitionendHandler);
       this.button.addEventListener('click', this.slideToggle);
     };
@@ -60,7 +60,7 @@ export default class SlideToggle {
   /* TOOGLE */
   slideToggle = () => {
     this.button.removeEventListener('click', this.slideToggle);
-    if (this.target.classList.contains('open')) {
+    if (this.target.classList.contains(this.open)) {
       this.slideUp();
     } else {
       this.slideDown();
